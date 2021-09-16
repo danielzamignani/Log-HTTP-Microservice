@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  log_postgres:
+    image: postgres:alpine
+    container_name: log-postgres
+    ports:
+      - 5433:5432
+    volumes:
+      - ./DOCKER-VOLUMES/postgresql/postgre-data:/var/lib/postgresql
+      - ./DOCKER-VOLUMES/postgresql/postgre-data/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=log
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=log_postgres
+      - TZ=America/SaoPaulo

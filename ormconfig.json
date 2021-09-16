@@ -1,0 +1,9 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5433,
+    "username": "log",
+    "password": "docker",
+    "database": "log_postgres",
+    "synchronize": true
+  }
