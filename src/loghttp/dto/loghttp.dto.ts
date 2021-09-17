@@ -3,5 +3,4 @@ export class LogHttpDTO {
   method: string;
   headers: any;
   body: any;
-  dateHour: Date;
 }

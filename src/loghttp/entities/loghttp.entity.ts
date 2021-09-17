@@ -8,11 +8,11 @@ export class LogHttp {
   @Column()
   url: string;
 
-  //  @Column()
-  //  body: any;
-  //
-  //  @Column()
-  //  headers: any;
+  @Column({ type: 'jsonb' })
+  body: any;
+
+  @Column({ type: 'jsonb' })
+  headers: any;
 
   @Column()
   method: string;

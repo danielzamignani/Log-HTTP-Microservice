@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getConnectionOptions } from 'typeorm';
-import { LoghttpModule } from './loghttp/loghttp.module';
+import { LogHttpModule } from './loghttp/loghttp.module';
 
 @Module({
   imports: [
@@ -11,7 +11,7 @@ import { LoghttpModule } from './loghttp/loghttp.module';
           autoLoadEntities: true,
         }),
     }),
-    LoghttpModule,
+    LogHttpModule,
   ],
   controllers: [],
   providers: [],

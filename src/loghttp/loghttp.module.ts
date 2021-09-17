@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
-import { LoghttpService } from './loghttp.service';
-import { LoghttpController } from './loghttp.controller';
+import { LogHttpService } from './loghttp.service';
+import { LogHttpController } from './loghttp.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { LogHttp } from './entities/loghttp.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([LogHttp])],
-  providers: [LoghttpService],
-  controllers: [LoghttpController],
+  providers: [LogHttpService],
+  controllers: [LogHttpController],
 })
-export class LoghttpModule {}
+export class LogHttpModule {}
