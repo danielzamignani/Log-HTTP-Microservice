@@ -11,6 +11,7 @@ async function bootstrap() {
       urls: ['amqp://admin:admin@localhost:5672'],
       queue: 'loghttp',
       prefetchCount: 1,
+      noAck: false,
       queueOptions: {
         durable: true,
       },

@@ -1,5 +1,5 @@
 import { Controller } from '@nestjs/common';
-import { EventPattern } from '@nestjs/microservices';
+import { Ctx, EventPattern, Payload, RmqContext } from '@nestjs/microservices';
 import { LogHttpDTO } from './dto/loghttp.dto';
 import { LogHttpService } from './loghttp.service';
 
@@ -8,7 +8,12 @@ export class LogHttpController {
   constructor(private readonly logHttpService: LogHttpService) {}
 
   @EventPattern('log')
-  saveLog(data: LogHttpDTO) {
-    return this.logHttpService.saveLog(data);
+  async saveLog(@Payload() data: LogHttpDTO, @Ctx() context: RmqContext) {
+    const channel = context.getChannelRef();
+    const originalMsg = context.getMessage();
+
+    await this.logHttpService.saveLog(data);
+
+    channel.ack(originalMsg);
   }
 }
