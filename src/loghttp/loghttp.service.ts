@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Channel, ConsumeMessage } from 'amqplib';
+import { rabbitMqQueue } from 'src/shared/configs/rabbitMq.config';
 import { Repository } from 'typeorm';
 import * as uuid from 'uuid';
 import { LogHttp } from './entities/loghttp.entity';
@@ -16,7 +17,7 @@ export class LogHttpService {
     this.saveLog();
   }
   async saveLog() {
-    this.consumerChannel.consume('loghttp', async (msg: ConsumeMessage) => {
+    this.consumerChannel.consume(rabbitMqQueue, async (msg: ConsumeMessage) => {
       const log = JSON.parse(msg.content.toString());
 
       const id = uuid.v4();
