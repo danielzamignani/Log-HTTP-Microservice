@@ -3,7 +3,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { getConnectionOptions } from 'typeorm';
 import { LogHttpModule } from './loghttp/loghttp.module';
 import { RabbitModule } from './shared/providers/rabbitMq.module';
-//import { RabbitModule } from './shared/provider/rabbitMq.module';
 
 @Module({
   imports: [
