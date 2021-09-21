@@ -18,5 +18,5 @@ export class LogHttp {
   method: string;
 
   @CreateDateColumn()
-  dateHour: Date;
+  created_at: Date;
 }
