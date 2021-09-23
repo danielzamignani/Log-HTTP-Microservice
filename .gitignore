@@ -37,3 +37,4 @@ lerna-debug.log*
 #Custom
 DOCKER-VOLUMES
 .env
+package-lock.json
